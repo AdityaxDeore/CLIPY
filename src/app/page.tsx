@@ -27,10 +27,7 @@ export default function LandingPage() {
           </div>
           
           <div className="flex items-center gap-4">
-            <Link href="/login" className="hidden md:block text-sm font-medium text-carbon hover:opacity-70 transition-opacity">
-              Log In
-            </Link>
-            <Link href="/project/new" className="h-10 px-5 bg-forest-ink text-white rounded-buttons text-sm font-medium flex items-center justify-center hover:bg-carbon hover:scale-105 transition-all">
+            <Link href="/login" className="h-10 px-5 bg-forest-ink text-white rounded-buttons text-sm font-medium flex items-center justify-center hover:bg-carbon hover:scale-105 transition-all">
               Get Started
             </Link>
           </div>

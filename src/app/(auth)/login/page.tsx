@@ -1,11 +1,12 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-export default function LoginPage() {
+export default function AuthPage() {
   const router = useRouter();
+  const [isLogin, setIsLogin] = useState(true);
 
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,11 +17,27 @@ export default function LoginPage() {
   return (
     <div className="w-full">
       <div className="mb-10 text-center lg:text-left">
-        <h1 className="text-3xl font-bold text-forest-ink font-editorial tracking-tight mb-3">Welcome back</h1>
-        <p className="text-smoke text-base">Log in to your account to manage your projects.</p>
+        <h1 className="text-3xl font-bold text-forest-ink font-editorial tracking-tight mb-3">
+          {isLogin ? 'Welcome back' : 'Create an account'}
+        </h1>
+        <p className="text-smoke text-base">
+          {isLogin ? 'Log in to your account to manage your projects.' : 'Sign up to start creating amazing videos.'}
+        </p>
       </div>
 
       <form className="space-y-5" onSubmit={handleAuth}>
+        {!isLogin && (
+          <div>
+            <label className="block text-sm font-semibold text-carbon mb-1.5" htmlFor="name">Full Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              className="w-full h-12 px-4 rounded-[12px] border border-gray-200 focus:outline-none focus:border-forest-ink focus:ring-1 focus:ring-forest-ink transition-colors text-carbon placeholder:text-gray-400" 
+              placeholder="John Doe"
+            />
+          </div>
+        )}
+        
         <div>
           <label className="block text-sm font-semibold text-carbon mb-1.5" htmlFor="email">Email Address</label>
           <input 
@@ -34,7 +51,7 @@ export default function LoginPage() {
         <div>
           <div className="flex items-center justify-between mb-1.5">
             <label className="block text-sm font-semibold text-carbon" htmlFor="password">Password</label>
-            <Link href="#" className="text-sm font-medium text-smoke hover:text-carbon transition-colors">Forgot password?</Link>
+            {isLogin && <Link href="#" className="text-sm font-medium text-smoke hover:text-carbon transition-colors">Forgot password?</Link>}
           </div>
           <input 
             type="password" 
@@ -48,7 +65,7 @@ export default function LoginPage() {
           type="submit" 
           className="w-full h-12 mt-4 bg-forest-ink text-white rounded-[12px] font-bold hover:bg-carbon hover:-translate-y-0.5 transition-all shadow-sm"
         >
-          Sign In
+          {isLogin ? 'Sign In' : 'Sign Up'}
         </button>
       </form>
 
@@ -72,7 +89,10 @@ export default function LoginPage() {
       </div>
 
       <p className="mt-10 text-center text-sm text-smoke font-medium">
-        Don't have an account? <Link href="/signup" className="text-forest-ink hover:text-green-500 transition-colors font-bold">Sign up for free</Link>
+        {isLogin ? "Don't have an account?" : "Already have an account?"}{' '}
+        <button onClick={() => setIsLogin(!isLogin)} type="button" className="text-forest-ink hover:text-green-500 transition-colors font-bold">
+          {isLogin ? 'Sign up for free' : 'Log in instead'}
+        </button>
       </p>
     </div>
   );

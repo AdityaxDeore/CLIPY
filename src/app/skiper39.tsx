@@ -295,10 +295,7 @@ const Skiper39 = () => {
         </h1>
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
           <Link href="/login" className="h-12 px-8 bg-forest-ink text-white rounded-[999px] text-base font-semibold flex items-center justify-center hover:bg-carbon hover:scale-105 shadow-md transition-all">
-            Sign Up Free
-          </Link>
-          <Link href="/login" className="h-12 px-8 bg-white text-forest-ink border-2 border-gray-200 rounded-[999px] text-base font-semibold flex items-center justify-center hover:border-gray-300 hover:bg-gray-50 shadow-sm transition-all">
-            Log In
+            Get Started
           </Link>
         </div>
       </div>

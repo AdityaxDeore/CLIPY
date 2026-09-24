@@ -109,7 +109,7 @@ export default function ServicesCatalog() {
                     ⏱ Est. Delivery: {service.delivery}
                   </span>
                   <Link 
-                    href={`/services/${service.id}`}
+                    href="/login"
                     className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-buttons bg-forest-ink text-white font-medium hover:bg-carbon transition-colors group-hover:bg-lime-spark group-hover:text-forest-ink"
                   >
                     Select Service
