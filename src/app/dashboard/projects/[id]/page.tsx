@@ -3,6 +3,15 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Clock, CheckCircle2, MessageSquare, Download, Play, Send, FileVideo, AlertCircle } from 'lucide-react';
 
+export function generateStaticParams() {
+  // Since we don't have a database yet, pre-render some mock project IDs
+  return [
+    { id: '1' },
+    { id: '2' },
+    { id: '3' },
+  ];
+}
+
 export default function ProjectWorkspace({ params }: { params: { id: string } }) {
   const [activeTab, setActiveTab] = useState('tracking');
   const [chatInput, setChatInput] = useState('');
